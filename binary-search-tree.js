@@ -229,7 +229,30 @@ class BinarySearchTree {
    * BFS: implement with a QUEUE */
 
   bfs() {
+    // initialize empty QUEUE 
+    let queue = [] 
+    // initialize visited nodes 
+    let visited = [] 
+    // initialize currentNode as root 
+    let currentNode = this.root 
+    // add root to the QUEUE 
+    queue.push(currentNode) 
 
+    // implement a while loop: while a queue exists... 
+    while(queue.length) {
+      // shift from the queue
+      currentNode = queue.shift() 
+      // push node's val to visited 
+      visited.push(currentNode.val) 
+      if(currentNode.left) {
+        queue.push(currentNode.left) 
+      }
+      if(currentNode.right) {
+        queue.push(currentNode.right) 
+      }
+    }
+    // returns the visited nodes array 
+    return visited; 
   }
 
   /** Further Study!
